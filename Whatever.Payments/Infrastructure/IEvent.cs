@@ -1,4 +1,4 @@
-﻿namespace Whatever.Payments
+﻿namespace Whatever.Payments.Infrastructure
 {
     public interface IEvent
     {

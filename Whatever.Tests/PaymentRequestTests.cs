@@ -1,18 +1,22 @@
-﻿using System;
-using FluentAssertions;
-using NSubstitute;
-using NUnit.Framework;
-using Whatever.Payments;
-using Whatever.Payments.Application;
-using Whatever.Payments.Domain.PaymentRequestDomain;
-using Whatever.Payments.Infrastructure;
-
-namespace Whatever.Tests
+﻿namespace Whatever.Tests
 {
+    using System;
+
+    using FluentAssertions;
+
+    using NSubstitute;
+
+    using NUnit.Framework;
+
+    using Whatever.Payments.Application;
+    using Whatever.Payments.Domain.PaymentRequestDomain;
+    using Whatever.Payments.Infrastructure;
+
     [TestFixture]
     public class PaymentRequestTests
     {
         private IGenerateAggregateId idGenerator;
+
         private IRepository repository;
 
         [SetUp]

@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Whatever.Payments
+﻿namespace Whatever.Payments.Domain
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Whatever.Payments.Infrastructure;
+
     public abstract class AggregateRoot
     {
         private readonly List<IEvent> changes = new List<IEvent>();

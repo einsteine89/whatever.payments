@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Whatever.Payments
+﻿namespace Whatever.Payments.Infrastructure
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Whatever.Payments.Domain;
+
     public class InMemoryEventStore : IEventStore
     {
         private static object _lock = new object();

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Whatever.Payments
+﻿namespace Whatever.Payments.Infrastructure
 {
+    using System;
+
     public class EventStoreItem
     {
         public int Version { get; }
