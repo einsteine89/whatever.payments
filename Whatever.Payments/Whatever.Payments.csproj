@@ -43,6 +43,11 @@
     <Compile Include="Domain\AggregateRoot.cs" />
     <Compile Include="Application\AcceptPaymentRequestCommand.cs" />
     <Compile Include="Application\CreatePaymentRequestCommand.cs" />
+    <Compile Include="Infrastructure\Bus.cs" />
+    <Compile Include="Infrastructure\IBus.cs" />
+    <Compile Include="Infrastructure\ICommand.cs" />
+    <Compile Include="Infrastructure\IHandlMessage.cs" />
+    <Compile Include="Infrastructure\IMessage.cs" />
     <Compile Include="Infrastructure\InMemoryEventStore.cs" />
     <Compile Include="Infrastructure\EventStoreItem.cs" />
     <Compile Include="Infrastructure\IEvent.cs" />

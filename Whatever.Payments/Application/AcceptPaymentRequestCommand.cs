@@ -1,8 +1,9 @@
 ﻿using System;
+using Whatever.Payments.Infrastructure;
 
 namespace Whatever.Payments.Application
 {
-    public class AcceptPaymentRequestCommand
+    public class AcceptPaymentRequestCommand : ICommand
     {
         public Guid PaymentRequestId { get; }
 

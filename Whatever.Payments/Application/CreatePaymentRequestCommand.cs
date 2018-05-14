@@ -1,6 +1,8 @@
-﻿namespace Whatever.Payments.Application
+﻿using Whatever.Payments.Infrastructure;
+
+namespace Whatever.Payments.Application
 {
-    public class CreatePaymentRequestCommand
+    public class CreatePaymentRequestCommand : ICommand
     {
         public string SSN { get; set; }
 

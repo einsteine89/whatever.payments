@@ -1,6 +1,6 @@
 ﻿namespace Whatever.Payments.Infrastructure
 {
-    public interface IEvent : IMessage
+    public interface IMessage
     {
     }
 }

@@ -3,7 +3,7 @@ using Whatever.Payments.Infrastructure;
 
 namespace Whatever.Payments.Application
 {
-    public class PaymentRequestCommandHandler
+    public class PaymentRequestCommandHandler : IHandlMessage<CreatePaymentRequestCommand>, IHandlMessage<AcceptPaymentRequestCommand>
     {
         private readonly IRepository repository;
         private readonly IGenerateAggregateId idGenerator;
@@ -19,7 +19,7 @@ namespace Whatever.Payments.Application
             var paymentRequest = new PaymentReqest();
             paymentRequest.New(idGenerator.NewId(), cmd.Amount, cmd.CUI, cmd.SSN);
             repository.Save(paymentRequest);
-            
+
         }
 
         public void Handle(AcceptPaymentRequestCommand cmd)

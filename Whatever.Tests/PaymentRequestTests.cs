@@ -19,12 +19,16 @@
 
         private IRepository repository;
 
+        private IBus bus;
+
         [SetUp]
         public void SetUp()
         {
             idGenerator = Substitute.For<IGenerateAggregateId>();
 
             repository = new InMemoryRepository(new InMemoryEventStore());
+
+            bus = new Bus();
         }
 
         [Test]
@@ -34,8 +38,12 @@
             idGenerator.NewId().Returns(aggregateId);
 
             var commandHanlder = new PaymentRequestCommandHandler(repository, idGenerator);
-            commandHanlder.Handle(new CreatePaymentRequestCommand());
-            commandHanlder.Handle(new AcceptPaymentRequestCommand(aggregateId));
+
+            bus.RegisterHandlerFor<CreatePaymentRequestCommand>(commandHanlder);
+            bus.RegisterHandlerFor<AcceptPaymentRequestCommand>(commandHanlder);
+
+            bus.Send(new CreatePaymentRequestCommand());
+            bus.Send(new AcceptPaymentRequestCommand(aggregateId));
 
             var pr = repository.Load<PaymentReqest>(aggregateId);
             pr.IsAccepted.Should().BeTrue();
@@ -49,9 +57,13 @@
             idGenerator.NewId().Returns(firstAggregateId, secondAggregateId);
 
             var commandHanlder = new PaymentRequestCommandHandler(repository, idGenerator);
-            commandHanlder.Handle(new CreatePaymentRequestCommand());
-            commandHanlder.Handle(new CreatePaymentRequestCommand());
-            commandHanlder.Handle(new AcceptPaymentRequestCommand(secondAggregateId));
+
+            bus.RegisterHandlerFor<CreatePaymentRequestCommand>(commandHanlder);
+            bus.RegisterHandlerFor<AcceptPaymentRequestCommand>(commandHanlder);
+
+            bus.Send(new CreatePaymentRequestCommand());
+            bus.Send(new CreatePaymentRequestCommand());
+            bus.Send(new AcceptPaymentRequestCommand(secondAggregateId));
 
             var firstPaymentRequest = repository.Load<PaymentReqest>(firstAggregateId);
             var secondPaymentRequest = repository.Load<PaymentReqest>(secondAggregateId);
