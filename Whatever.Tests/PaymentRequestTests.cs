@@ -9,6 +9,7 @@
     using NUnit.Framework;
 
     using Whatever.Payments.Application;
+    using Whatever.Payments.Application.Commands;
     using Whatever.Payments.Domain.PaymentRequestDomain;
     using Whatever.Payments.Infrastructure;
 

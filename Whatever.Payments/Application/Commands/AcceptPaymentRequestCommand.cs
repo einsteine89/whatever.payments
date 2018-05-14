@@ -1,7 +1,7 @@
 ﻿using System;
 using Whatever.Payments.Infrastructure;
 
-namespace Whatever.Payments.Application
+namespace Whatever.Payments.Application.Commands
 {
     public class AcceptPaymentRequestCommand : ICommand
     {

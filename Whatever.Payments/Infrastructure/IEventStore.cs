@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
 
-    using Whatever.Payments.Domain;
-
     public interface IEventStore
     {
         IEnumerable<IEvent> GetLog<T>(Guid aggregateId) where T : AggregateRoot;

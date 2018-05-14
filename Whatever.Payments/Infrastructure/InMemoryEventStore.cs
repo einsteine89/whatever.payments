@@ -4,12 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Whatever.Payments.Domain;
-
     public class InMemoryEventStore : IEventStore
     {
-        private static object _lock = new object();
-
         private int version = 0;
         private List<EventStoreItem> log = new List<EventStoreItem>();
 

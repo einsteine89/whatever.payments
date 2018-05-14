@@ -1,9 +1,7 @@
-﻿namespace Whatever.Payments.Domain
+﻿namespace Whatever.Payments.Infrastructure
 {
     using System;
     using System.Collections.Generic;
-
-    using Whatever.Payments.Infrastructure;
 
     public abstract class AggregateRoot
     {
@@ -39,7 +37,14 @@
 
         private void ApplyChange(IEvent evt, bool isNew)
         {
-            var handler = handlers[evt.GetType()];
+            var eventType = evt.GetType();
+
+            if (!handlers.ContainsKey(eventType))
+            {
+                throw new InvalidOperationException($"Handler not registerd for {eventType}");
+            }
+
+            var handler = handlers[eventType];
             handler.Invoke(evt);
             if (isNew) changes.Add(evt);
         }

@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\AggregateRoot.cs" />
-    <Compile Include="Application\AcceptPaymentRequestCommand.cs" />
-    <Compile Include="Application\CreatePaymentRequestCommand.cs" />
+    <Compile Include="Infrastructure\AggregateRoot.cs" />
+    <Compile Include="Application\Commands\AcceptPaymentRequestCommand.cs" />
+    <Compile Include="Application\Commands\CreatePaymentRequestCommand.cs" />
     <Compile Include="Infrastructure\Bus.cs" />
     <Compile Include="Infrastructure\IBus.cs" />
     <Compile Include="Infrastructure\ICommand.cs" />

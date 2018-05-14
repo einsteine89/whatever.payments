@@ -1,4 +1,5 @@
-﻿using Whatever.Payments.Domain.PaymentRequestDomain;
+﻿using Whatever.Payments.Application.Commands;
+using Whatever.Payments.Domain.PaymentRequestDomain;
 using Whatever.Payments.Infrastructure;
 
 namespace Whatever.Payments.Application

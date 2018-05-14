@@ -1,5 +1,6 @@
 ﻿using System;
 using Whatever.Payments.Domain.PaymentRequestDomain.Events;
+using Whatever.Payments.Infrastructure;
 
 namespace Whatever.Payments.Domain.PaymentRequestDomain
 {

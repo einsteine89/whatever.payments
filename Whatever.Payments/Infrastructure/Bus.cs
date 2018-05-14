@@ -16,17 +16,18 @@ namespace Whatever.Payments.Infrastructure
 
             var handlersForType = handlers[typeof(T)];
             handlersForType.Add(x => handler.Handle((T)x));
-            
         }
 
         public void Send(IMessage message)
         {
-            if (!handlers.ContainsKey(message.GetType()))
+            var messageType = message.GetType();
+
+            if (!handlers.ContainsKey(messageType))
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException($"No handler registered for {messageType}");
             }
 
-            var handlersToCall = handlers[message.GetType()];
+            var handlersToCall = handlers[messageType];
             foreach (var handler in handlersToCall)
             {
                 handler.Invoke(message);

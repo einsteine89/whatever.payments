@@ -1,6 +1,6 @@
 ﻿using Whatever.Payments.Infrastructure;
 
-namespace Whatever.Payments.Application
+namespace Whatever.Payments.Application.Commands
 {
     public class CreatePaymentRequestCommand : ICommand
     {

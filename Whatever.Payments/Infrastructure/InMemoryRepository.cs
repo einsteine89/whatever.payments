@@ -2,8 +2,6 @@
 
 namespace Whatever.Payments.Infrastructure
 {
-    using Whatever.Payments.Domain;
-
     public class InMemoryRepository : IRepository
     {
         private IEventStore store;
